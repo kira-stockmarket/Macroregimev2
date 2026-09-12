@@ -1,0 +1,20 @@
+{
+    "NSEBANK": {
+        "status": "Active",
+        "sector_regime": "Choppy_or_Steady_Consolidation",
+        "breakouts": [],
+        "scan_date": "2026-09-12"
+    },
+    "CNXIT": {
+        "status": "Active",
+        "sector_regime": "Choppy_or_Steady_Consolidation",
+        "breakouts": [],
+        "scan_date": "2026-09-12"
+    },
+    "CNXAUTO": {
+        "status": "Active",
+        "sector_regime": "Choppy_or_Steady_Consolidation",
+        "breakouts": [],
+        "scan_date": "2026-09-12"
+    }
+}
