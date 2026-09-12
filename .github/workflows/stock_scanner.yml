@@ -1,0 +1,28 @@
+name: 2. Stock Scanner
+on:
+  workflow_run:
+    workflows: ["1. Hive Mind Engine"]
+    types:
+      - completed
+
+permissions:
+  contents: write
+
+jobs:
+  scan-stocks:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      # (Add stock scanning python script here if required in the future)
+      - name: Generate Dummy Signal
+        run: echo '{"status": "Scanner ready"}' > sector_signals.json
+      - name: Safe Commit and Push
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add sector_signals.json || true
+          git commit -m "📡 Update Scanner Signals" || echo "No changes"
+          for i in 1 2 3 4 5; do git pull --rebase origin main && git push && break || sleep 10; done
