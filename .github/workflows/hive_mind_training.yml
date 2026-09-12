@@ -1,0 +1,39 @@
+name: 1. Hive Mind Engine
+on:
+  schedule:
+    - cron: '0 14 * * 1-5' # Runs Mon-Fri after Indian market close
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  train-models:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+        
+      - name: Run Matrix Worker & Meta Ensemble
+        run: |
+          python matrix_worker.py
+          python meta_ensemble.py
+          
+      - name: Safe Commit and Push
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add market_regimes.json ensemble_history.csv *_base_preds.csv || true
+          git commit -m "🤖 Update Hive Mind Regimes" || echo "No changes to commit"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && break || sleep 10
+          done
