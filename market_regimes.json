@@ -1,0 +1,42 @@
+{
+    "NSEI": {
+        "regime": "Choppy_or_Steady_Consolidation",
+        "confidence": 0.2765987063106224,
+        "date": "2026-09-11"
+    },
+    "NSEBANK": {
+        "regime": "Choppy_or_Steady_Consolidation",
+        "confidence": 0.22448076348938764,
+        "date": "2026-09-11"
+    },
+    "CNXPHARMA": {
+        "regime": "Choppy_or_Steady_Consolidation",
+        "confidence": 0.23110461582875866,
+        "date": "2026-09-11"
+    },
+    "CNXAUTO": {
+        "regime": "Choppy_or_Steady_Consolidation",
+        "confidence": 0.24294459334112548,
+        "date": "2026-07-17"
+    },
+    "CNXIT": {
+        "regime": "Choppy_or_Steady_Consolidation",
+        "confidence": 0.25099229138860557,
+        "date": "2026-09-11"
+    },
+    "CNXMETAL": {
+        "regime": "Choppy_or_Steady_Consolidation",
+        "confidence": 0.2157850420336077,
+        "date": "2026-07-17"
+    },
+    "CNXFMCG": {
+        "regime": "Choppy_or_Steady_Consolidation",
+        "confidence": 0.2211525592610772,
+        "date": "2026-07-17"
+    },
+    "CNXREALTY": {
+        "regime": "Choppy_or_Steady_Consolidation",
+        "confidence": 0.25669555777456954,
+        "date": "2026-07-17"
+    }
+}
